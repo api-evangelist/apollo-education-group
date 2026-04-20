@@ -1,11 +1,25 @@
-# Apollo Education Group
+# Apollo Education Group (apollo-education-group)
+Apollo Education Group is a private education provider that operates the University of Phoenix and other institutions offering associate's, bachelor's, master's, and doctoral degree programs. The organization focuses on providing accessible higher education to working adult learners through online and in-person formats.
 
-This is a repository for tracking the APIs, SDKs, and other developer resources for Apollo Education Group.
+**URL:** [https://www.phoenix.edu/](https://www.phoenix.edu/)
 
-## APIs
+**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
-No APIs have been documented yet. Check back for updates.
+## Tags:
 
-## Properties
+ - Education, Higher Education, Online Education, Private Education, University
 
-- [Website](https://www.apollo-education-group.com)
+## Timestamps
+
+- **Created:** 2026-03-23
+- **Modified:** 2026-04-19
+
+## Common Properties
+
+- [Documentation](https://www.phoenix.edu/)
+
+## Maintainers
+
+**FN:** Kin Lane
+
+**Email:** info@apievangelist.com

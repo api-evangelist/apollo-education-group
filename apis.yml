@@ -21,6 +21,8 @@ description: >-
   education to working adult learners through online and in-person formats.
 apis: []
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/apollo-education-group
   - type: Documentation
     url: https://www.phoenix.edu/
 maintainers:

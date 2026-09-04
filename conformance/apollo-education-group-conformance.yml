@@ -1,0 +1,157 @@
+generated: '2026-09-04'
+method: probed
+source: >-
+  Live anonymous probes of the University of Phoenix single sign-on host, 2026-09-04. Every
+  assertion below is read out of a document served by login.phoenix.edu; none is derived from
+  marketing prose.
+note: |
+  Apollo Education Group / University of Phoenix publishes no developer API, so there is no
+  REST/GraphQL contract to assert API conventions against. What the institution DOES publish
+  anonymously is a pair of standards-shaped identity contracts on its own SSO host, and those
+  are what this file records.
+
+  Two conformance families are in scope here and both are graded from the contract itself:
+  the OAuth 2.0 / OpenID Connect discovery document, and a SAML 2.0 metadata document. SAML
+  is on the education regime's own standards shortlist in scoring.yml, which is why it is
+  recorded as a domain-standard signature rather than a generic cross-cutting one.
+
+  Explicitly NOT asserted, because no evidence was found: LTI, OneRoster, Ed-Fi, Caliper, QTI,
+  OAI-PMH, ORCID, DataCite, Crossref, SCIM, Shibboleth. Those are the other education-regime
+  standards; probing found none of them and this pipeline never invents a conformance to fill
+  the slot.
+conformance:
+  - id: oauth2
+    conforms: true
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    detail: >-
+      RFC 6749 authorization server. Advertises authorization, token, introspection (RFC 7662),
+      revocation (RFC 7009) and pushed-authorization-request (RFC 9126) endpoints.
+    artifact: well-known/apollo-education-group-openid-configuration.json
+    checked: '2026-09-04'
+  - id: oidc
+    conforms: true
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    detail: >-
+      OpenID Connect Discovery 1.0 document served at the canonical path, carrying issuer,
+      jwks_uri, userinfo_endpoint, subject_types_supported and id_token signing algorithms.
+      Back-channel logout (OIDC Back-Channel Logout 1.0) and the session-management
+      check_session_iframe are both advertised.
+    artifact: well-known/apollo-education-group-openid-configuration.json
+    checked: '2026-09-04'
+  - id: pkce
+    conforms: true
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    detail: >-
+      RFC 7636. code_challenge_methods_supported = [plain, S256]. S256 is present; `plain` is
+      also still advertised, which permits a downgrade.
+    checked: '2026-09-04'
+  - id: mtls-bound-tokens
+    conforms: true
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    detail: >-
+      RFC 8705. tls_client_certificate_bound_access_tokens = true, with tls_client_auth and
+      self_signed_tls_client_auth in token_endpoint_auth_methods_supported.
+    checked: '2026-09-04'
+  - id: jarm
+    conforms: true
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    detail: >-
+      JWT Secured Authorization Response Mode. response_modes_supported includes jwt, query.jwt,
+      fragment.jwt and form_post.jwt, with authorization_signing_alg_values_supported present.
+    checked: '2026-09-04'
+  - id: fapi
+    conforms: false
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    detail: >-
+      Not a FAPI profile. require_pushed_authorization_requests is false, the `implicit` and
+      `password` grants are both still advertised, and `plain` PKCE remains enabled — each of
+      which a FAPI 2.0 security profile forbids.
+    checked: '2026-09-04'
+  - id: rfc8414
+    conforms: false
+    evidence: https://login.phoenix.edu/.well-known/oauth-authorization-server
+    status: 501
+    detail: >-
+      OAuth 2.0 Authorization Server Metadata is NOT served — the host answers 501 on the
+      RFC 8414 path. Discovery is available only through the OIDC path.
+    checked: '2026-09-04'
+  - id: rfc9728
+    conforms: false
+    evidence: https://login.phoenix.edu/.well-known/oauth-protected-resource
+    status: 404
+    detail: >-
+      No OAuth 2.0 Protected Resource Metadata document. An agent cannot discover a protected
+      resource or its authorization server from this host.
+    checked: '2026-09-04'
+  - id: rfc9116
+    conforms: false
+    evidence: https://www.phoenix.edu/.well-known/security.txt
+    status: 404
+    detail: No security.txt on any Apollo Education Group / University of Phoenix host.
+    checked: '2026-09-04'
+domain_standards:
+  - id: saml
+    standard: SAML 2.0 (OASIS)
+    conforms: true
+    regime: education
+    evidence: https://login.phoenix.edu/am/saml2/jsp/exportmetadata.jsp?realm=/alpha
+    status: 200
+    content_type: text/xml;charset=utf-8
+    spec_location: >-
+      The document root is <EntityDescriptor entityID="multimedia.phoenix.edu"
+      xmlns="urn:oasis:names:tc:SAML:2.0:metadata">, containing an SPSSODescriptor with
+      protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" and SingleLogoutService /
+      ManageNameIDService endpoints bound over HTTP-Redirect, HTTP-POST and SOAP.
+    artifact: saml/apollo-education-group-saml2-metadata.xml
+    detail: >-
+      A real, self-describing SAML 2.0 metadata contract served anonymously by the institution's
+      own ForgeRock AM host for the /alpha realm. Federated SSO via SAML 2.0 is the standard the
+      US higher-education sector actually integrates on, and this is the contract declaring it —
+      not a claim on a marketing page. Note the descriptor is a SERVICE PROVIDER descriptor for
+      multimedia.phoenix.edu, so what is published is one relying party's federation metadata,
+      not an institution-wide IdP metadata document.
+    checked: '2026-09-04'
+  - id: saml2-bearer-grant
+    standard: RFC 7522 (SAML 2.0 Bearer Assertion Profile for OAuth 2.0)
+    conforms: true
+    regime: education
+    evidence: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    spec_location: >-
+      grant_types_supported includes "urn:ietf:params:oauth:grant-type:saml2-bearer".
+    detail: >-
+      The OAuth surface declares it will accept a SAML 2.0 assertion as an authorization grant,
+      which is the bridge an institution running SAML federation uses to reach OAuth-protected
+      resources. Corroborates the SAML metadata above from a second, independent document.
+    checked: '2026-09-04'
+not_asserted:
+  - id: lti
+    reason: No LTI tool configuration, platform registration, or /.well-known/lti* document found.
+  - id: oneroster
+    reason: No OneRoster REST surface or CSV bundle published.
+  - id: ed-fi
+    reason: No Ed-Fi ODS/API surface published.
+  - id: caliper
+    reason: No Caliper analytics endpoint or sensor documentation published.
+  - id: qti
+    reason: No QTI assessment package or delivery contract published.
+  - id: oai-pmh
+    reason: >-
+      No OAI-PMH repository found. University of Phoenix publishes research (Phoenix Scholar) as
+      PDFs on www.phoenix.edu, not through a harvestable repository interface.
+  - id: scim
+    reason: >-
+      No SCIM 2.0 surface. The ForgeRock deployment advertises an `fr:idm:*` scope over its own
+      IDM REST API, which is not SCIM and is not publicly documented.
+  - id: shibboleth
+    reason: /Shibboleth.sso/Metadata returns 404 on login.phoenix.edu; the federation runs on ForgeRock AM, not Shibboleth.
+  - id: orcid
+    reason: No ORCID identifier scheme surfaced in any published contract.
+  - id: rfc9457
+    reason: No REST API is published, so there is no error envelope to grade.

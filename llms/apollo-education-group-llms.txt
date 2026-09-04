@@ -1,0 +1,39 @@
+# University of Phoenix
+
+> University of Phoenix (UOPX) is an accredited, online university founded in 1976 and headquartered in Phoenix, Arizona. 
+
+## Core Pages
+
+- [Home](https://www.phoenix.edu/): Overview of the university.
+- [Application for Admissions](https://www.phoenix.edu/application/quick-app/personal-info): Begin the free online application with no application fee. It typically takes about 20 minutes to complete, and applicants can save their progress and return later.
+- [Online Degree Programs](https://www.phoenix.edu/online-degrees.html): Catalog of associate, bachelor's, master's, and doctoral programs across all fields of study.
+- [Find Your Program](https://www.phoenix.edu/online-degrees/find-your-program.html): Interactive tool to match prospective students with degree programs by field of study and degree level.
+- [Online Courses](https://www.phoenix.edu/online-courses.html): Find the right course for your needs.
+- [Admissions](https://www.phoenix.edu/admissions.html): Admission requirements, application process, transfer credit policies, enrollment representative support, and how to get started.
+- [Tuition & Financial Aid](https://www.phoenix.edu/tuition-financial-aid.html): Tuition rates, Tuition Guarantee.
+- [Federal Financial Aid](https://www.phoenix.edu/tuition-financial-aid/federal-financial-aid.html): Information on FAFSA (school code: 014593).
+- [Cost of Attendance (2025/2026)](https://www.phoenix.edu/tuition-financial-aid/cost-of-attendance.html): Detailed cost-of-attendance tables.
+- [Financial Aid FAQ](https://www.phoenix.edu/tuition-financial-aid/financial-aid-faq.html): Common questions on tuition guarantee.
+- [Accreditation](https://www.phoenix.edu/about/accreditation.html): Accreditation information. 
+- [Student Resources / FAQ](https://www.phoenix.edu/student-resources/faq.html): Frequently asked questions covering admissions, programs, transfer credits, financial aid, online learning, and student conduct.
+
+## Academic Programs by College
+
+- [Business Degrees](https://www.phoenix.edu/online-business-degrees.html): Explore 35+ programs. Eligible transfer credits could cover up to 70% of your bachelor’s degree, or if qualified, you may pursue a competency-based MBA in under a year for less than $10K.
+- [Information Technology Degrees](https://www.phoenix.edu/online-information-technology-degrees.html): Choose from 17+ programs across associate, bachelor’s and master’s levels aligned to 63+ careers.
+- [Education Degrees](https://www.phoenix.edu/online-education-degrees.html): Choose from 15+ programs, which may include on-ground components. Learn from professionals who average 29+ years of experience and are leaders in their fields.
+- [Healthcare Degrees](https://www.phoenix.edu/online-healthcare-degrees.html): Choose from 14+ healthcare degree programs at the bachelor’s, master’s and doctoral level aligned to over 30+ real-world healthcare careers.
+- [Behavioral Sciences Degrees](https://www.phoenix.edu/online-behavioral-sciences-degrees.html): Online behavioral science degrees align to 25+ behavioral science careers.
+- [Criminal Justice Degrees](https://www.phoenix.edu/online-criminal-justice-degrees.html): Online criminal justice degrees.
+- [Nursing Degrees](https://www.phoenix.edu/online-nursing-degrees.html):  Choose from RN to BSN, MSN and DNP options aligned with standards and competencies set by the American Association of Colleges of Nursing (AACN).
+- [Psychology Degrees](https://www.phoenix.edu/online-psychology-degrees.html): Choose from bachelor’s and master’s programs. If qualified, you can finish a competency-based master’s in psychology in under a year for less than $11K.
+- [Liberal Arts Degrees](https://www.phoenix.edu/online-liberal-arts-degrees.html): Students can choose from two bachelor’s degree programs aligned to more than 20 career paths, taught by faculty with 28+ years of professional experience.
+
+
+## Additional Sections
+
+- [Savings Explorer Tool](https://www.phoenix.edu/tuition-financial-aid/savings-explorer.html): Interactive tool to identify potential savings from transfer credits.
+- [Scholarship Finder](https://www.phoenix.edu/tuition-financial-aid/scholarships.html): Search tool for scholarships.
+- [Transfer Credits](https://www.phoenix.edu/admissions/transfer-credits.html): Information on how prior college credits, professional certifications, and work experience may apply toward a degree.
+- [College Degree Levels Explained](https://www.phoenix.edu/articles/online-college/college-degree-levels-in-order.html): Educational guide explaining associate, bachelor's, master's, and doctoral degree types.
+- [Student Portal (MyPhoenix)](https://my.phoenix.edu/): Login for students.

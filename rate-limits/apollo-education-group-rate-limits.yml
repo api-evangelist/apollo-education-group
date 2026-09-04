@@ -1,0 +1,28 @@
+generated: '2026-09-04'
+method: probed
+source: >-
+  Live anonymous responses from https://login.phoenix.edu/.well-known/openid-configuration and
+  https://www.phoenix.edu/, 2026-09-04.
+docs: null
+limit_count: 0
+note: >-
+  No rate limits are documented anywhere, and none were observed. Apollo Education Group /
+  University of Phoenix publishes no API and no developer documentation, so there is no limits
+  reference to read. Every anonymous 200 fetched during this pass was inspected for rate-limit
+  signalling and carried none. An honest zero.
+limits: []
+response_headers:
+  observed: []
+  note: >-
+    No RateLimit-* (RFC 9331 draft), X-RateLimit-*, or Retry-After header appeared on any
+    response from login.phoenix.edu or www.phoenix.edu.
+status_on_exhaustion: null
+evidence:
+  - url: https://login.phoenix.edu/.well-known/openid-configuration
+    status: 200
+    note: No rate-limit headers on the response.
+    checked: '2026-09-04'
+  - url: https://www.phoenix.edu/llms.txt
+    status: 200
+    note: No rate-limit headers on the response; the llms.txt itself states no machine limits.
+    checked: '2026-09-04'

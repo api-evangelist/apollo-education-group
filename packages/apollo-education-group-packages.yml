@@ -1,0 +1,56 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  Registry searches against npm, PyPI, RubyGems, crates.io, Packagist and Maven Central, plus
+  the GitHub organization check, 2026-09-04.
+package_count: 0
+official_count: 0
+note: >-
+  No first-party client library exists in any public registry. Apollo Education Group /
+  University of Phoenix publishes no API, so there is nothing for an SDK to wrap. NO `SDKs`
+  pointer is emitted — sdk_count must stay at an honest zero. Every "phoenix" hit in npm, PyPI
+  and Maven belongs to an unrelated project (the Elixir Phoenix web framework, Arize Phoenix,
+  Apache Phoenix, @supabase/phoenix); every "apollo" hit belongs to Apollo GraphQL. Name
+  collision is the dominant failure mode on this slug and none of those packages is recorded.
+packages: []
+registries_searched:
+  - registry: npm
+    queries: [uopx, phoenix-edu, university-of-phoenix, apollo-education]
+    result: no first-party package; all hits are the Elixir/Arize/Apollo-GraphQL namespaces
+    checked: '2026-09-04'
+  - registry: pypi
+    queries: [uopx, phoenix-edu, university-of-phoenix, apollo-education]
+    result: 404 on every candidate name
+    checked: '2026-09-04'
+  - registry: rubygems
+    queries: [uopx, phoenix-edu]
+    result: 404 on every candidate name
+    checked: '2026-09-04'
+  - registry: crates.io
+    queries: [uopx, phoenix-edu]
+    result: >-
+      403 to an unauthenticated crawler (crates.io blocks non-browser agents); no evidence of a
+      first-party crate from any other source either. Recorded as unverified-by-registry, not
+      as a hit.
+    checked: '2026-09-04'
+  - registry: packagist
+    queries: [uopx, 'university of phoenix']
+    result: 0 results
+    checked: '2026-09-04'
+  - registry: maven-central
+    queries: [phoenix.edu]
+    result: no artifact under any phoenix.edu / uopx groupId
+    checked: '2026-09-04'
+source_repositories:
+  - url: https://github.com/UniversityofPhoenix
+    status: 200
+    public_repos: 0
+    note: >-
+      The GitHub organization name is claimed but holds ZERO public repositories. Same for
+      https://github.com/University-of-Phoenix. No GitHubOrganization pointer is emitted — an
+      empty org is not a published source surface.
+    checked: '2026-09-04'
+  - url: https://api.github.com/orgs/apollo-education-group
+    status: 404
+    note: No GitHub organization under the company name.
+    checked: '2026-09-04'

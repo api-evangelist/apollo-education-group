@@ -1,0 +1,108 @@
+generated: '2026-09-04'
+method: probed
+source: https://login.phoenix.edu/.well-known/openid-configuration
+docs: null
+scope_of_this_document: >-
+  Apollo Education Group / University of Phoenix publishes no developer API. The ONLY
+  machine-readable request/response surface reachable without credentials is the institution's
+  OAuth 2.0 / OpenID Connect single sign-on on login.phoenix.edu, and every convention below is
+  read out of that server's discovery document. Do not read this as a description of a product
+  API — there is none.
+auth:
+  style: oauth2 / openIdConnect (bearer)
+  detail: >-
+    ForgeRock Access Management, realm /alpha, issuer https://login.phoenix.edu:443/am/oauth2.
+    Bearer access tokens; optionally mTLS-bound (RFC 8705). Six token-endpoint client
+    authentication methods, including private_key_jwt and both tls_client_auth variants.
+  cross_link: authentication/apollo-education-group-authentication.yml
+idempotency:
+  coverage: none
+  scope: []
+  mechanism: null
+  header: null
+  retention: null
+  note: >-
+    No idempotency mechanism of any kind. There is no Idempotency-Key header, no request-id
+    de-duplication, and no documented replay window on the token, revocation or PAR endpoints.
+    OAuth's single-use authorization code is an anti-replay control, not an idempotency
+    guarantee: a repeated token request with a consumed code fails rather than returning the
+    original result. Recorded as `none` rather than `na` because the surface does have mutating
+    operations (token issuance, token revocation, session termination, pushed authorization
+    requests) — there is simply no replay protection over them.
+reversibility:
+  grade: documented
+  note: >-
+    Reversal paths exist and are standards-defined, but no window is published anywhere by the
+    institution, so this grades `documented` (0.4) and not `verified`. NEVER infer a window here:
+    ForgeRock's default token lifetimes are deployment configuration and are not advertised in
+    the discovery document.
+  write_surfaces:
+    - operation: Issue access / refresh / ID token
+      endpoint: https://login.phoenix.edu:443/am/oauth2/access_token
+      reversal: Token revocation (RFC 7009)
+      reversal_endpoint: https://login.phoenix.edu:443/am/oauth2/token/revoke
+      window: null
+      window_source: null
+      note: >-
+        The revocation endpoint is advertised in the discovery document and accepts the same six
+        client authentication methods as the token endpoint. No token lifetime, no revocation
+        window and no propagation delay is stated in any published document.
+    - operation: Establish an authenticated session
+      endpoint: https://login.phoenix.edu:443/am/oauth2/authorize
+      reversal: RP-initiated logout / end session (OIDC RP-Initiated Logout 1.0)
+      reversal_endpoint: https://login.phoenix.edu:443/am/oauth2/connect/endSession
+      window: null
+      window_source: null
+      note: >-
+        Back-channel logout is also advertised (backchannel_logout_supported = true,
+        backchannel_logout_session_supported = true), so a relying party can be told a session
+        ended rather than having to poll.
+    - operation: Push an authorization request (RFC 9126)
+      endpoint: https://login.phoenix.edu:443/am/oauth2/par
+      reversal: null
+      window: null
+      note: >-
+        No cancel/expire operation is advertised for a pushed request URI. RFC 9126 gives
+        request_uri a server-set expiry, but this server does not publish that value.
+    - operation: Register a client (RFC 7591)
+      endpoint: https://login.phoenix.edu:443/am/oauth2/register
+      reversal: null
+      window: null
+      note: >-
+        The registration_endpoint is advertised because ForgeRock advertises it on every
+        deployment. It is not documented, not offered as a public onboarding route, and no
+        de-registration path is published. Treated as present-but-undocumented, not as a
+        self-service developer surface.
+dry_run_mode:
+  supported: false
+  note: >-
+    No rehearsal or simulation mode. The `prompt=none` authorization parameter is a silent
+    re-authentication check, not a dry run of a state change.
+pagination:
+  style: na
+  note: No collection-returning REST surface is published.
+versioning:
+  style: >-
+    Discovery document carries "version": "3.0", the ForgeRock AM discovery payload version.
+    No API version is negotiated in a path, header or media type — there is no API to version.
+  cross_link: lifecycle/apollo-education-group-lifecycle.yml
+error_envelope:
+  format: OAuth 2.0 error object (RFC 6749 §5.2) — {"error", "error_description"}
+  rfc9457: false
+  note: >-
+    Not RFC 9457 problem+json. The envelope is whatever the OAuth and OIDC specs mandate; the
+    institution publishes no error reference of its own, so there is no error catalogue to
+    derive and errors/ is deliberately empty.
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: null
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header was observed on any anonymous response,
+    and no limit is documented.
+  cross_link: rate-limits/apollo-education-group-rate-limits.yml
+request_tracing:
+  request_id_header: null
+  note: No correlation or request-id header is documented or observed.
+metadata_and_expansion:
+  supported: false
+  note: na — no resource API.

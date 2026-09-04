@@ -1,0 +1,214 @@
+generated: '2026-09-04'
+method: probed
+source: live anonymous probes of /.well-known/ on every Apollo Education Group / University of
+  Phoenix host the record knows, 2026-09-04
+summary: >-
+  Exactly one real document is served anywhere: the OpenID Connect discovery document on
+  login.phoenix.edu, the ForgeRock Access Management authorization server behind the University
+  of Phoenix student/staff single sign-on. That 200 carries a genuine RFC 8414 / OIDC Discovery
+  JSON body and is what earns the WellKnown pointer. Nothing else exists on any host — no
+  security.txt (so NO SecurityTxt pointer), no api-catalog, no ai-plugin.json, and no A2A agent
+  card at either the canonical or the legacy path.
+ownership: >-
+  phoenix.edu and its subdomains are the operating domain of University of Phoenix, the
+  institution Apollo Education Group operates and the site apis.yml already records as this
+  company's website. login.phoenix.edu is the institution's own SSO host, reached by following
+  the portal.phoenix.edu redirect; the issuer it advertises is https://login.phoenix.edu:443/am/oauth2.
+pointer_basis: >-
+  WellKnown pointer emitted on the strength of the single 200 on login.phoenix.edu carrying a
+  parseable OIDC discovery document. SecurityTxt pointer NOT emitted — RFC 9116 is unimplemented
+  on every host probed. AgentCard pointer NOT emitted — no agent card was found.
+false_positive_watch: >-
+  Three hosts answer HTTP 200 with a catch-all body for EVERY /.well-known/* path and are
+  recorded below as MISSES, not hits: sso.phoenix.edu returns a 2,298-byte XHTML error page,
+  portal.phoenix.edu returns a 795-byte SPA shell, and phoenixeducationpartners.com returns the
+  11-byte string "Invalid key" for every path. Any future round that reads one of those 200s as
+  a served document is wrong.
+hosts:
+  - host: https://login.phoenix.edu
+    note: ForgeRock Access Management, realm /alpha — the University of Phoenix SSO authorization server.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: apollo-education-group-openid-configuration.json
+        content_type: application/json;charset=UTF-8
+        bytes: 5595
+        checked: '2026-09-04'
+      - path: /.well-known/oauth-authorization-server
+        status: 501
+        checked: '2026-09-04'
+      - path: /.well-known/security.txt
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/api-catalog
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 404
+        checked: '2026-09-04'
+  - host: https://www.phoenix.edu
+    note: >-
+      Adobe Experience Manager marketing site. Every /.well-known/* path returns a real HTTP 404
+      with the 163KB branded not-found page. A real /llms.txt IS served here (saved to
+      llms/apollo-education-group-llms.txt) but it is not a /.well-known/ document.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/openid-configuration
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/api-catalog
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 404
+        checked: '2026-09-04'
+  - host: https://phoenix.edu
+    note: Apex domain; 301s to www.phoenix.edu, same 404s.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/openid-configuration
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/api-catalog
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 404
+        checked: '2026-09-04'
+  - host: https://my.phoenix.edu
+    note: MyPhoenix student portal (named by the provider's own llms.txt). Real 404s, 29KB body.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/openid-configuration
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/api-catalog
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 404
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 404
+        checked: '2026-09-04'
+  - host: https://sso.phoenix.edu
+    note: >-
+      MISS, not a hit. Answers 200 with an identical 2,298-byte XHTML error document for every
+      path, including paths that cannot exist.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        served_document: false
+        body: XHTML error page (2,298 bytes, identical for every path)
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 200
+        served_document: false
+        body: XHTML error page (2,298 bytes, identical for every path)
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 200
+        served_document: false
+        body: XHTML error page (2,298 bytes, identical for every path)
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+  - host: https://portal.phoenix.edu
+    note: >-
+      MISS, not a hit. React SPA shell (795 bytes) returned 200 for every path. The portal root
+      itself 302s into the login.phoenix.edu ForgeRock authorize endpoint, which is how the SSO
+      host above was discovered.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        served_document: false
+        body: SPA shell (HTML, 795 bytes)
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 200
+        served_document: false
+        body: SPA shell (HTML, 795 bytes)
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 200
+        served_document: false
+        body: SPA shell (HTML, 795 bytes)
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+  - host: https://www.phoenixeducationpartners.com
+    note: >-
+      MISS, not a hit. The successor corporate site (Apollo Education Group was renamed Phoenix
+      Education Partners). Behind a Cloudflare managed challenge at the root; every
+      /.well-known/* path returns 200 with the 11-byte body "Invalid key".
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        served_document: false
+        body: '"Invalid key" (11 bytes, identical for every path)'
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/openid-configuration
+        status: 200
+        served_document: false
+        body: '"Invalid key" (11 bytes, identical for every path)'
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/agent-card.json
+        status: 200
+        served_document: false
+        body: '"Invalid key" (11 bytes, identical for every path)'
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+      - path: /.well-known/agent.json
+        status: 200
+        served_document: false
+        body: '"Invalid key" (11 bytes, identical for every path)'
+        verdict: MISS — soft-200 catch-all, not a document
+        checked: '2026-09-04'
+a2a:
+  agent_card_found: false
+  hosts_probed: [www.phoenix.edu, phoenix.edu, login.phoenix.edu, sso.phoenix.edu,
+    portal.phoenix.edu, my.phoenix.edu, www.phoenixeducationpartners.com, phoenixeducationpartners.com]
+  paths_probed: [/.well-known/agent-card.json, /.well-known/agent.json]
+  checked: '2026-09-04'
+  result: >-
+    No A2A agent card on any host at either the canonical or the legacy path. The four 200s
+    recorded above are catch-all HTML/plaintext bodies, not AgentCard JSON. No a2a/ artifact and
+    no AgentCard pointer are written — an agent card may only ever be recorded from a real 200
+    carrying AgentCard shape, never authored on the provider's behalf.

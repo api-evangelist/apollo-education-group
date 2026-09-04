@@ -1,0 +1,74 @@
+generated: '2026-09-04'
+method: probed
+source: >-
+  Live probes of the Apollo Education Group / University of Phoenix public surface, 2026-09-04.
+note: |
+  There is no API lifecycle to document because there is no published API. What this file
+  records instead is the lifecycle of the COMPANY, which is the material fact a reader of this
+  profile needs: the corporate entity behind the name "Apollo Education Group" has been renamed,
+  and its former domain no longer serves.
+versioning:
+  policy_published: false
+  scheme: null
+  url: null
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  url: null
+  note: >-
+    No RFC 8594 Sunset or Deprecation header was observed, and no deprecation policy page
+    exists. NO Deprecation pointer is emitted.
+sla:
+  published: false
+  url: null
+status_page:
+  published: false
+  probes:
+    - url: https://status.phoenix.edu/
+      status: 000
+      note: >-
+        The hostname resolves (74.120.224.210) but neither HTTPS nor HTTP completes a
+        connection. Nothing is served, so this is not a status page and NO StatusPage pointer
+        is emitted.
+      checked: '2026-09-04'
+corporate_lifecycle:
+  entity_status: renamed
+  detail: >-
+    Apollo Education Group was taken private in 2017 and the group has since been renamed
+    Phoenix Education Partners, which filed for a US IPO (see
+    press/2026-05-25-04-apollo-backed-phoenix-education-partners-files-for-us-ipo.md in this
+    repository). University of Phoenix remains the operating institution and phoenix.edu remains
+    the live surface this profile is built from.
+  domain_evidence:
+    - url: http://apolloeducationgroup.com/
+      status: 301
+      redirects_to: http://apollo.edu/
+      note: The former corporate domain now 301s to apollo.edu.
+      checked: '2026-09-04'
+    - url: https://apollo.edu/
+      status: 000
+      note: >-
+        The redirect target does not serve — no TLS handshake and no HTTP response. The old
+        corporate web presence is effectively gone.
+      checked: '2026-09-04'
+    - url: https://www.phoenixeducationpartners.com/
+      status: 403
+      note: >-
+        The successor corporate site is live but behind a Cloudflare managed challenge
+        ("Just a moment..." interstitial). Live, not dead — we do not evade challenges.
+      checked: '2026-09-04'
+    - url: https://www.phoenix.edu/
+      status: 200
+      note: The operating institution's site. This is the surface every artifact here came from.
+      checked: '2026-09-04'
+  dead_pointer_removed:
+    - url: https://www.linkedin.com/company/apollo-education-group
+      status: 404
+      note: >-
+        Confirmed dead with a browser User-Agent. This is not a bot block — the same request
+        against https://www.linkedin.com/company/university-of-phoenix/ returns LinkedIn's 999
+        bot-challenge status, which is what a page that EXISTS returns. The
+        apollo-education-group company page returns a real 404. The LinkedIn pointer was removed
+        from apis.yml rather than left to rot.
+      checked: '2026-09-04'

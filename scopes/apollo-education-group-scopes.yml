@@ -1,0 +1,63 @@
+generated: '2026-09-04'
+method: probed
+source: https://login.phoenix.edu/.well-known/openid-configuration
+docs: null
+note: |
+  Apollo Education Group / University of Phoenix publishes no scopes or permissions reference
+  page — there is no developer program to publish one for. This catalogue is taken verbatim from
+  the `scopes_supported` array of the University of Phoenix single sign-on OIDC discovery
+  document (ForgeRock Access Management, realm /alpha), fetched anonymously HTTP 200 on
+  2026-09-04.
+
+  These scopes govern institutional sign-on to MyPhoenix / eCampus. They are not scopes a
+  third-party integrator can request: no public client registration path is documented.
+schemes:
+  - name: PhoenixSSO
+    source: well-known/apollo-education-group-openid-configuration.json
+    issuer: https://login.phoenix.edu:443/am/oauth2
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://login.phoenix.edu:443/am/oauth2/authorize
+        tokenUrl: https://login.phoenix.edu:443/am/oauth2/access_token
+scopes:
+  - scope: openid
+    description: Standard OpenID Connect scope — requests an ID token for the signed-in
+      University of Phoenix user.
+    standard: OIDC Core 1.0
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+  - scope: profile
+    description: Standard OIDC claim set — name and profile claims for the signed-in user.
+    standard: OIDC Core 1.0
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+  - scope: email
+    description: Standard OIDC email claim.
+    standard: OIDC Core 1.0
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+  - scope: address
+    description: Standard OIDC address claim.
+    standard: OIDC Core 1.0
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+  - scope: phone
+    description: Standard OIDC phone-number claim.
+    standard: OIDC Core 1.0
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+  - scope: fr:idm:*
+    description: ForgeRock Identity Management product scope — grants access to the IDM REST
+      surface behind the platform. Vendor-defined, not an OIDC standard scope.
+    standard: null
+    vendor: ForgeRock (Ping Identity)
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+  - scope: am-introspect-all-tokens
+    description: ForgeRock Access Management product scope — allows a client to introspect
+      tokens issued to other clients in the realm. Vendor-defined, administrative.
+    standard: null
+    vendor: ForgeRock (Ping Identity)
+    sources: [well-known/apollo-education-group-openid-configuration.json]
+coverage:
+  scope_count: 7
+  standard_oidc: 5
+  vendor_defined: 2
+  note: >-
+    The two vendor scopes are ForgeRock platform defaults, present on every AM deployment. They
+    are recorded because they are what the server advertises, not because University of Phoenix
+    documents them.

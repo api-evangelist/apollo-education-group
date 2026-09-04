@@ -1,0 +1,21 @@
+generated: '2026-09-04'
+method: searched
+source: https://www.phoenix.edu/tuition-financial-aid.html
+plan_count: 0
+note: >-
+  Apollo Education Group / University of Phoenix publishes no API plans, tiers, quotas or
+  overage terms, because it publishes no API. The pricing the institution does publish is
+  tuition and financial aid for degree programs — a per-credit tuition rate and a tuition
+  guarantee, not an API plan — and it is deliberately NOT recorded here as plans[]: mapping
+  course tuition onto an API pricing artifact would be a fabrication of exactly the kind this
+  pipeline exists to prevent. plan_count is an honest zero.
+plans: []
+evidence:
+  - url: https://www.phoenix.edu/tuition-financial-aid.html
+    status: 200
+    note: Tuition and financial aid page — degree-program pricing, no API pricing of any kind.
+    checked: '2026-09-04'
+  - url: https://www.phoenix.edu/tuition-financial-aid/cost-of-attendance.html
+    status: 200
+    note: Cost-of-attendance tables, linked from the provider's own llms.txt.
+    checked: '2026-09-04'

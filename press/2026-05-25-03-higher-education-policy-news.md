@@ -1,7 +1,9 @@
 ---
 title: Higher Education Policy News
 url: https://www.highereddive.com/topic/policy/?page=94
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Apollo Education Group" press release artificial intelligence'
 position: 3
 source: serpapi-google

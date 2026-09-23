@@ -1,7 +1,9 @@
 ---
 title: University of Phoenix Owner, Apollo Education Group, Will ...
 url: https://www.nytimes.com/2016/02/09/business/dealbook/apollo-education-group-university-of-phoenix-owner-to-be-taken-private.html
-date: '2026-05-25'
+published: '2016-02-09'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"Apollo Education Group" press release artificial intelligence'
 position: 2
 source: serpapi-google

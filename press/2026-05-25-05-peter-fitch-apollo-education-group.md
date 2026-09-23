@@ -1,7 +1,9 @@
 ---
 title: Peter Fitch - Apollo Education Group
 url: https://www.linkedin.com/in/peter-fitch-57a861a2
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Apollo Education Group" press release artificial intelligence'
 position: 5
 source: serpapi-google

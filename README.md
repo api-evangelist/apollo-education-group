@@ -1,4 +1,4 @@
-# Apollo Education Group (apollo-education-group)
+# Apollo Education Group
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,27 +64,108 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Apollo Education Group is a private education provider that operates the University of Phoenix and other institutions offering associate's, bachelor's, master's, and doctoral degree programs. The organization focuses on providing accessible higher education to working adult learners through online and in-person formats.
+Apollo Education Group is a private education provider that operates the University of Phoenix and other institutions offering associate's, bachelor's, master's, and doctoral degree programs. The organization focuses on providing accessible higher education to working adult learners through online and in-person formats. Taken private in 2017, the group has since been renamed Phoenix Education Partners; the former apolloeducationgroup.com domain no longer serves and the live surface is the operating institution's site at phoenix.edu. There is no public developer program: the only machine-readable contracts the group publishes are the identity documents behind its student single sign-on.
 
-**URL:** [https://www.phoenix.edu/](https://www.phoenix.edu/)
+**Areas:** Education · Higher Education · Online Education · Private Education · University
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Apollo Education Group on APIs.io
 
-## Tags:
+Everything profiled for Apollo Education Group is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apollo-education-group/](https://apis.io/providers/apollo-education-group/)** — or go straight to one of the APIs or properties below.
 
- - Education, Higher Education, Online Education, Private Education, University
+### APIs (1)
 
-## Timestamps
+- [University of Phoenix Single Sign-On (OpenID Connect / OAuth 2.0)](https://apis.io/apis/apollo-education-group/phoenix-sso-openid-connect/) — The University of Phoenix identity provider, running ForgeRock Access Management in the /alpha realm. The OpenID Connect discovery document is served…
 
-- **Created:** 2026-03-23
-- **Modified:** 2026-04-19
+### Published properties
 
-## Common Properties
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- [Documentation](https://www.phoenix.edu/)
+#### Security (2)
 
-## Maintainers
+Authentication, trust centre, and vulnerability disclosure.
 
-**FN:** Kin Lane
+- [Apollo Education Group Authentication](https://apis.io/security/apollo-education-group/apollo-education-group-authentication/)
+- [Apollo Education Group Domain Security](https://apis.io/security/apollo-education-group/apollo-education-group-domain-security/)
 
-**Email:** info@apievangelist.com
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Apollo Education Group Scopes](https://apis.io/scopes/apollo-education-group/apollo-education-group-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apollo Education Group Plans Pricing](https://apis.io/plans/apollo-education-group/apollo-education-group-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apollo Education Group Rate Limits](https://apis.io/rate-limits/apollo-education-group/apollo-education-group-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.phoenix.edu/)
+- [Pricing](https://www.phoenix.edu/tuition-financial-aid.html)
+- [Sign up](https://www.phoenix.edu/application/quick-app/personal-info)
+- [Support](https://www.phoenix.edu/about/contact-us.html)
+- [Blog](https://www.phoenix.edu/blog.html)
+- [Terms of service](https://www.phoenix.edu/copyright-legal/terms-conditions.html)
+- [Privacy policy](https://www.phoenix.edu/copyright-legal/privacy-policy.html)
+
+## API Evangelist rating
+
+**Kin Score 25.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 83.9 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 44.7 |
+
+**Agent readiness 17.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.3** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apollo-education-group/](https://apis.io/providers/apollo-education-group/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apollo Education Group: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apollo-education-group/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
